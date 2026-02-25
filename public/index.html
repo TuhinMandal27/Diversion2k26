@@ -17,16 +17,21 @@
   <div class="modal-overlay" id="sosModal">
     <div class="modal">
       <div class="modal-icon"></div>
+
       <h3>SOS TRIGGERED</h3>
-      <p>RapidAid is fetching your emergency data and alerting nearby responders.</p>
-      <div class="modal-steps">
-        <div class="modal-step">✓ GPS Location acquired: 22.8°N, 88.4°E</div>
-        <div class="modal-step">✓ Nearest hospital: Apollo, 2.3km</div>
-        <div class="modal-step">✓ 3 on-duty doctors found nearby</div>
-        <div class="modal-step">⟳ OpenCV triage assistance activated</div>
-        <div class="modal-step">⟳ ML condition analysis in progress...</div>
+      <p>
+        RapidAid is fetching your real-time emergency data
+        and alerting nearby responders.
+      </p>
+
+      <!-- 🔥 DYNAMIC CONTENT ONLY -->
+      <div class="modal-steps" id="sosResults">
+        <!-- Filled dynamically by JS -->
       </div>
-      <button class="modal-close" onclick="closeModal()">DISMISS DEMO</button>
+
+      <button class="modal-close" onclick="closeModal()">
+        DISMISS
+      </button>
     </div>
   </div>
 
@@ -148,32 +153,32 @@
 
     <div class="features-grid">
       <div class="feature-card">
-        <div class="feat-icon-wrap"></div>
+        <!-- <div class="feat-icon-wrap"></div> -->
         <div class="feat-title">OpenCV First Aid Guidance</div>
         <div class="feat-desc">Computer vision analyzes the patient through the camera — detecting visible injuries, consciousness levels, and providing step-by-step first aid instructions in real time until help arrives.</div>
       </div>
       <div class="feature-card featured">
-        <div class="feat-icon-wrap" style="background: rgba(255,26,26,0.15); border-color: rgba(255,26,26,0.4);"></div>
+        <!-- <div class="feat-icon-wrap"></div> -->
         <div class="feat-title">ML-Powered Emergency Routing</div>
         <div class="feat-desc">Machine learning continuously processes hospital occupancy, doctor availability, traffic, and road conditions to dispatch the optimal responder — not just the nearest one.</div>
       </div>
       <div class="feature-card">
-        <div class="feat-icon-wrap"></div>
+        <!-- <div class="feat-icon-wrap"></div> -->
         <div class="feat-title">Real-Time Location Sharing</div>
         <div class="feat-desc">Precise GPS coordinates are shared with responders, hospitals, and emergency contacts simultaneously. Location updates live as the patient moves.</div>
       </div>
       <div class="feature-card">
-        <div class="feat-icon-wrap"></div>
+        <!-- <div class="feat-icon-wrap"></div> -->
         <div class="feat-title">Hospital DB Scanner</div>
         <div class="feat-desc">Scans a live hospital database to find not just the nearest facility, but one with available beds, relevant specialists, and on-duty doctors matching the emergency type.</div>
       </div>
       <div class="feature-card">
-        <div class="feat-icon-wrap"></div>
+        <!-- <div class="feat-icon-wrap"></div> -->
         <div class="feat-title">Doctor Duty Tracker</div>
         <div class="feat-desc">Maintains real-time status of on-duty vs off-duty doctors in the area. Can alert off-duty doctors for critical emergencies when on-duty capacity is exhausted.</div>
       </div>
       <div class="feature-card">
-        <div class="feat-icon-wrap"></div>
+        <!-- <div class="feat-icon-wrap"></div> -->
         <div class="feat-title">Accessible UI Design</div>
         <div class="feat-desc">Sections separated by function. Giant, unmissable red SOS button. Designed for panic situations where every second and tap counts — zero learning curve.</div>
       </div>
@@ -207,25 +212,25 @@
         </div>
         <div class="phone-location">
           <div>LOCATION</div>
-          <div class="loc-val">22.8449°N, 88.4430°E — Bhātpāra, WB</div>
+          <div class="loc-val" id="phoneLocation" >Waiting for SOS…</div>
         </div>
         <button class="phone-sos" onclick="triggerSOS()">SOS</button>
         <div class="phone-grid">
           <div class="phone-mini-card">
             <div class="pmc-label">Nearest Hospital</div>
-            <div class="pmc-val">Apollo — 2.3km</div>
+            <div class="pmc-val" id="phoneHospital"> — </div>
           </div>
           <div class="phone-mini-card">
             <div class="pmc-label">On-Duty Doctors</div>
-            <div class="pmc-val">3 Available</div>
+            <div class="pmc-val" id="phoneDoctors" > — </div>
           </div>
           <div class="phone-mini-card">
             <div class="pmc-label">AI Triage</div>
-            <div class="pmc-val" style="color: var(--accent)">Active</div>
+            <div class="pmc-val" style="color: var(--accent)" id="phoneTriage" >Inactive</div>
           </div>
           <div class="phone-mini-card">
             <div class="pmc-label">ETA Relief</div>
-            <div class="pmc-val">~8 min</div>
+            <div class="pmc-val" id="phoneETA"> — </div>
           </div>
         </div>
       </div>
@@ -276,5 +281,6 @@
 
   <!-- JavaScript -->
   <script src="js/main.js"></script>
+  <script src="js/sos.js"></script>
 </body>
 </html>

@@ -6,6 +6,7 @@ const authRoutes = require("./routes/auth.routes");
 const sosRoutes = require("./routes/sos.routes");
 const hospitalRoutes = require("./routes/hospital.routes");
 
+
 const app = express();
 
 app.use(cors());
@@ -26,6 +27,7 @@ app.get("/", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/sos", sosRoutes);
 app.use("/api/hospitals", hospitalRoutes);
+
 
 app.listen(3000, () => {
   console.log("Server running on http://localhost:3000");

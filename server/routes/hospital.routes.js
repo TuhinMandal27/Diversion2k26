@@ -1,46 +1,80 @@
 const express = require("express");
 const router = express.Router();
+const axios = require("axios");
+const db = require("../db");
 
-router.get("/", (req, res) => {
-  res.json([]);
+
+/**
+ * TEST ROUTE (very important)
+ */
+router.get("/test", (req, res) => {
+  res.json({ ok: true });
 });
 
-const db = require("../db");
+/**
+ * GET /api/hospitals/search?lat=..&lng=..
+ */
+router.get("/search", (req, res) => {
+  const { lat, lng } = req.query;
+
+  console.log("Hospital search hit:", lat, lng);
+
+  res.json([
+    {
+      name: "Apollo Hospital",
+      address: "Kolkata",
+      phone: "+91 98765 43210",
+      doctor_name: "Amit Sharma",
+      speciality: "Emergency Medicine",
+      distance: 2.1
+    },
+    {
+      name: "Fortis Hospital",
+      address: "Kolkata",
+      phone: "+91 91234 56789",
+      doctor_name: "Neha Verma",
+      speciality: "Trauma Specialist",
+      distance: 4.6
+    }
+  ]);
+});
 
 /**
  * GET /api/hospitals?lat=..&lng=..
  * Returns nearest hospitals
  */
-router.get("/", (req, res) => {
-  const { lat, lng } = req.query;
+// router.get("/search", (req, res) => {
+//   const { lat, lng } = req.query;
 
-  if (!lat || !lng) {
-    return res.json([]);
-  }
-
-  const query = `
-    SELECT id, name, address, phone,
-    (
-      6371 * acos(
-        cos(radians(?)) *
-        cos(radians(latitude)) *
-        cos(radians(longitude) - radians(?)) +
-        sin(radians(?)) *
-        sin(radians(latitude))
-      )
-    ) AS distance
-    FROM hospitals
-    ORDER BY distance
-    LIMIT 10
-  `;
-
-  db.query(query, [lat, lng, lat], (err, rows) => {
-    if (err) {
-      console.error(err);
-      return res.json([]);
-    }
-    res.json(rows);
-  });
-});
+//   // simulate network delay (realistic)
+//   setTimeout(() => {
+//     res.json([
+//       {
+//         name: "Apollo Hospital",
+//         address: "Sector 26, Noida",
+//         phone: "+91 98765 43210",
+//         doctor_name: "Amit Sharma",
+//         speciality: "Emergency Medicine",
+//         distance: 2.1
+//       },
+//       {
+//         name: "Fortis Hospital",
+//         address: "Sector 62, Noida",
+//         phone: "+91 91234 56789",
+//         doctor_name: "Neha Verma",
+//         speciality: "Trauma Specialist",
+//         distance: 4.6
+//       },
+//       {
+//         name: "Max Super Speciality Hospital",
+//         address: "Sector 19, Noida",
+//         phone: "+91 99887 66554",
+//         doctor_name: "Rahul Mehta",
+//         speciality: "Cardiology",
+//         distance: 6.3
+//       }
+//     ]);
+//   }, 1500); // 1.5 sec delay for realism
+// });
 
 module.exports = router;

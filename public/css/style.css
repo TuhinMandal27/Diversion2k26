@@ -448,7 +448,7 @@ h2 {
 .step-num {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 5rem;
-  color: rgba(255,255,255,0.05);
+  color: rgb(255, 255, 255);
   line-height: 1;
   margin-bottom: 1rem;
   letter-spacing: 2px;
@@ -515,19 +515,6 @@ h2 {
 .feature-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-}
-
-.feat-icon-wrap {
-  width: 56px;
-  height: 56px;
-  background: rgba(255,26,26,0.1);
-  border: 1px solid rgba(255,26,26,0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
 }
 
 .feat-title {
@@ -1004,4 +991,23 @@ footer {
   .hackathon-banner { flex-direction: column; gap: 1.5rem; padding: 3rem 1.5rem; text-align: center; }
 
   footer { flex-direction: column; gap: 1rem; padding: 2rem 1.5rem; text-align: center; }
+}
+
+
+.location-input {
+  width: 100%;
+  max-width: 480px;
+  padding: 1rem;
+  margin: 1rem 0;
+  background: var(--dark3);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--white);
+  font-family: 'Outfit', sans-serif;
+}
+
+.status-msg {
+  margin-top: 1.2rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--gray);
 }

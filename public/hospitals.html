@@ -1,20 +1,20 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RapidAid — Nearby Hospitals</title>
+  <title>RapidAid — Nearby Hospitals</title> -->
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet"> -->
 
   <!-- Main Theme CSS -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body> -->
 
 <!-- NAVBAR -->
-<nav>
+<!-- <nav>
   <div class="nav-logo">RAPID<span>AID</span></div>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
@@ -22,16 +22,17 @@
     <li><a href="consult.html">Consult</a></li>
     <li><a href="login.html">Logout</a></li>
   </ul>
-</nav>
+</nav> -->
 
 <!-- PAGE HEADER -->
-<section class="section" style="padding-top:8rem;">
+<!-- <section class="section" style="padding-top:8rem;">
   <div class="section-tag">Emergency Care</div>
   <h2>NEARBY<br />HOSPITALS</h2>
   <p class="section-sub">
     RapidAid uses your current location to find the nearest hospitals,
     helping you save precious minutes during emergencies.
   </p>
+
 
   <button class="btn-primary" id="findHospitals">
     📍 Find Hospitals Near Me
@@ -40,24 +41,24 @@
   <div id="statusMsg" style="margin-top:2rem; font-family:'Space Mono', monospace; color:var(--gray);">
     Click the button to fetch nearby hospitals.
   </div>
-</section>
+</section> -->
 
 <!-- HOSPITAL LIST -->
-<section class="section" style="padding-top:2rem;">
+<!-- <section class="section" style="padding-top:2rem;">
   <div id="hospitalList" class="features-grid"></div>
-</section>
+</section> -->
 
 <!-- FOOTER -->
-<footer>
+<!-- <footer>
   <div class="footer-logo">RAPID<span>AID</span></div>
   <div class="footer-text">
     Emergency healthcare when every second matters.
   </div>
   <div class="footer-tagline">Every second counts.</div>
-</footer>
+</footer> -->
 
 <!-- SCRIPT -->
-<script>
+<!-- <script>
   const btn = document.getElementById("findHospitals");
   const list = document.getElementById("hospitalList");
   const statusMsg = document.getElementById("statusMsg");
@@ -113,7 +114,77 @@
       }
     );
   });
+
 </script>
 
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RapidAid — Live Doctor Availability</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">RAPID<span>AID</span></div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="hospitals.html" class="active">Hospitals</a></li>
+    <li><a href="consult.html">Consult</a></li>
+  </ul>
+</nav>
+
+<!-- HEADER -->
+<section class="section" style="padding-top:8rem;">
+  <div class="section-tag">Emergency Scan</div>
+  <h2>LIVE DOCTOR<br>AVAILABILITY</h2>
+  <p class="section-sub">
+    Enter your city to instantly find nearby hospitals and doctors
+    who are currently available for emergency care.
+  </p>
+
+  <!-- LOCATION INPUT -->
+  <input
+    type="text"
+    id="cityInput"
+    class="location-input"
+    placeholder="Enter city (e.g. Noida, Delhi, Kolkata)"
+  />
+
+  <button class="btn-primary" id="searchBtn">
+    Scan Availability
+  </button>
+
+  <div id="statusMsg" class="status-msg">
+    Waiting for location input…
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="section" style="padding-top:2rem;">
+  <div id="hospitalList" class="features-grid"></div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">RAPID<span>AID</span></div>
+  <div class="footer-text">
+    Real-time emergency response when every second matters.
+  </div>
+</footer>
+
+<script src="js/hospitals.js"></script>
 </body>
 </html>
