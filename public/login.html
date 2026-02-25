@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RapidAid — Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/Diversion2k26/public/css/style.css" />
+  <link rel="stylesheet" href="/Diversion2k26/public/css/auth.css" />
+</head>
+<body>
+
+    <div class="auth-page">
+
+        <!-- LEFT BRANDING PANEL -->
+        <div class="auth-left">
+        <div class="auth-left-bg-text">AID</div>
+
+        <div class="auth-brand">
+            <a href="index.html" class="logo">RAPID<span>AID</span></a>
+            <div class="tagline">Emergency Response System</div>
+        </div>
+
+        <div class="auth-left-content">
+            <h2>YOUR LIFE.<br /><span>OUR MISSION.</span></h2>
+            <p>Log in to access real-time emergency services, nearest hospital locator, and instant online doctor consultation — all in one place.</p>
+            <div class="auth-features">
+            <div class="auth-feature">
+                <div class="auth-feature-dot"></div>
+                ONE-PRESS SOS EMERGENCY ALERT
+            </div>
+            <div class="auth-feature">
+                <div class="auth-feature-dot"></div>
+                NEAREST HOSPITALS WITH LIVE CAPACITY
+            </div>
+            <div class="auth-feature">
+                <div class="auth-feature-dot"></div>
+                ONLINE DOCTOR CONSULTATION 24/7
+            </div>
+            <div class="auth-feature">
+                <div class="auth-feature-dot"></div>
+                OPENCVAI TRIAGE UNTIL HELP ARRIVES
+            </div>
+            </div>
+        </div>
+
+        <div class="auth-left-footer">© 2025 RapidAid — Diversion Hackathon</div>
+        </div>
+
+        <!-- RIGHT FORM PANEL -->
+        <div class="auth-right">
+        <div class="auth-form-wrap">
+            <div class="auth-form-header">
+            <div class="form-eyebrow">Secure Login</div>
+            <h1>WELCOME<br />BACK</h1>
+            <p>Don't have an account? <a href="signup.html">Create one →</a></p>
+            </div>
+
+            <div class="form-msg error" id="loginError">⚠ Invalid credentials. Please try again.</div>
+            <div class="form-msg success" id="loginSuccess">✓ Login successful! Redirecting...</div>
+
+            <form id="loginForm" novalidate>
+
+            <div class="form-group">
+                <label>Email Address</label>
+                <div class="input-icon-wrap">
+                <span class="input-icon">📧</span>
+                <input type="email" id="loginEmail" placeholder="you@example.com" autocomplete="email" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <div class="pw-wrap">
+                <input type="password" id="loginPassword" placeholder="Enter your password" autocomplete="current-password" required />
+                <button type="button" class="pw-toggle" onclick="togglePw('loginPassword', this)">👁</button>
+                </div>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+                <label style="display:flex; align-items:center; gap:0.5rem; font-family:'Space Mono',monospace; font-size:0.65rem; color:var(--gray); cursor:pointer;">
+                <input type="checkbox" style="accent-color:var(--red);" /> Remember me
+                </label>
+                <a href="#" style="font-family:'Space Mono',monospace; font-size:0.65rem; color:var(--red); text-decoration:none;">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn-submit">LOGIN TO RAPIDAID</button>
+
+            </form>
+
+            <div class="auth-divider"><span>or continue as</span></div>
+
+            <a href="index.html" style="display:block; text-align:center; font-family:'Space Mono',monospace; font-size:0.7rem; letter-spacing:2px; color:var(--gray); text-decoration:none; padding:0.8rem; border:1px solid rgba(255,255,255,0.08); transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(255,26,26,0.4)';this.style.color='var(--white)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.color='var(--gray)'">
+            GUEST — VIEW LANDING PAGE
+            </a>
+
+        </div>
+        </div>
+
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>

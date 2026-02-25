@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RapidAid — Emergency Response System</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!--SOS MODAL OVERLAY-->
+  <div class="modal-overlay" id="sosModal">
+    <div class="modal">
+      <div class="modal-icon">🚨</div>
+      <h3>SOS TRIGGERED</h3>
+      <p>RapidAid is fetching your emergency data and alerting nearby responders.</p>
+      <div class="modal-steps">
+        <div class="modal-step">✓ GPS Location acquired: 22.8°N, 88.4°E</div>
+        <div class="modal-step">✓ Nearest hospital: Apollo, 2.3km</div>
+        <div class="modal-step">✓ 3 on-duty doctors found nearby</div>
+        <div class="modal-step">⟳ OpenCV triage assistance activated</div>
+        <div class="modal-step">⟳ ML condition analysis in progress...</div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">DISMISS DEMO</button>
+    </div>
+  </div>
+
+  <!--NAVIGATION-->
+  <nav>
+    <div class="nav-logo">RAPID<span>AID</span></div>
+    <ul class="nav-links">
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#remote">Remote Care</a></li>
+      <li><a href="/Diversion2k26/public/hospitals.html">Hospitals</a></li>
+      <li><a href="/Diversion2k26/public/consult.html">Consult</a></li>
+      <li><a href="/Diversion2k26/public/login.html">Login</a></li>
+      <li><a href="/Diversion2k26/public/signup.html">Signup</a></li>
+    </ul>
+  </nav>
+
+  <!--HERO SECTION-->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-tag fade-up">Healthcare Track</div>
+      <h1 class="fade-up fade-up-2">
+        EMERGENCY<br />
+        RESPONSE<br />
+        <span class="highlight">REIMAGINED.</span>
+      </h1>
+      <p class="hero-desc fade-up fade-up-3">
+        RapidAid is an AI-powered emergency platform that dispatches smarter than an ambulance,
+        reaches where ambulances can't, and starts treating you before help even arrives.
+      </p>
+      <div class="hero-cta fade-up fade-up-4">
+        <a href="#how" class="btn-primary">Explore the Project</a>
+        <a href="#features" class="btn-secondary">↓ See Features</a>
+      </div>
+    </div>
+
+    <div class="hero-right fade-up fade-up-3">
+      <div class="sos-display">
+        <div class="sos-rings">
+          <div class="ring"></div>
+          <div class="ring"></div>
+          <div class="ring"></div>
+        </div>
+        <button class="sos-btn" onclick="triggerSOS()">
+          <div class="sos-label">SOS</div>
+          <div class="sos-sub">Press in emergency</div>
+        </button>
+        <div class="sos-status">
+          <div class="status-dot"></div>
+          SYSTEM ONLINE — READY
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--STATS BAR-->
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-num">&lt;30s</div>
+      <div class="stat-label">Response Time</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Remote Coverage</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">AI</div>
+      <div class="stat-label">Triage Support</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Doctor Database</div>
+    </div>
+  </div>
+
+  <!--HOW IT WORKS-->
+  <section class="section" id="how">
+    <div class="section-tag">Process Flow</div>
+    <h2>HOW IT<br />WORKS</h2>
+    <p class="section-sub">
+      From the moment you press SOS to when help arrives — every second is optimized by ML and real-time data.
+    </p>
+
+    <div class="flow-grid">
+      <div class="flow-step">
+        <div class="step-num">01</div>
+        <div class="step-icon">🔴</div>
+        <div class="step-title">SOS Button Pressed</div>
+        <div class="step-desc">User presses the unmissable red SOS button. Instantly triggers emergency protocol — no menus, no delays.</div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">02</div>
+        <div class="step-icon">📡</div>
+        <div class="step-title">Data Fetched Instantly</div>
+        <div class="step-desc">GPS location, patient name, nearest hospitals, and real-time condition assessment are captured in under 3 seconds.</div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">03</div>
+        <div class="step-icon">🤖</div>
+        <div class="step-title">AI Triage Activated</div>
+        <div class="step-desc">OpenCV analyzes live camera feed for visual triage. ML model scans hospital database for on-duty doctors nearby.</div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">04</div>
+        <div class="step-icon">🏥</div>
+        <div class="step-title">Relief Dispatched</div>
+        <div class="step-desc">Nearest available doctor is notified. AI provides first-response guidance until physical help arrives on-site.</div>
+      </div>
+    </div>
+  </section>
+
+  <!--FEATURES -->
+  <section class="section features-bg" id="features">
+    <div class="section-tag">Capabilities</div>
+    <h2>BUILT TO<br />SAVE LIVES</h2>
+    <p class="section-sub">
+      Each feature is engineered for maximum impact in minimum time — especially in underserved and remote regions.
+    </p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feat-icon-wrap">📸</div>
+        <div class="feat-title">OpenCV First Aid Guidance</div>
+        <div class="feat-desc">Computer vision analyzes the patient through the camera — detecting visible injuries, consciousness levels, and providing step-by-step first aid instructions in real time until help arrives.</div>
+      </div>
+      <div class="feature-card featured">
+        <div class="feat-icon-wrap" style="background: rgba(255,26,26,0.15); border-color: rgba(255,26,26,0.4);">🧠</div>
+        <div class="feat-title">ML-Powered Emergency Routing</div>
+        <div class="feat-desc">Machine learning continuously processes hospital occupancy, doctor availability, traffic, and road conditions to dispatch the optimal responder — not just the nearest one.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon-wrap">📍</div>
+        <div class="feat-title">Real-Time Location Sharing</div>
+        <div class="feat-desc">Precise GPS coordinates are shared with responders, hospitals, and emergency contacts simultaneously. Location updates live as the patient moves.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon-wrap">🏥</div>
+        <div class="feat-title">Hospital DB Scanner</div>
+        <div class="feat-desc">Scans a live hospital database to find not just the nearest facility, but one with available beds, relevant specialists, and on-duty doctors matching the emergency type.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon-wrap">👨‍⚕️</div>
+        <div class="feat-title">Doctor Duty Tracker</div>
+        <div class="feat-desc">Maintains real-time status of on-duty vs off-duty doctors in the area. Can alert off-duty doctors for critical emergencies when on-duty capacity is exhausted.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon-wrap">🌐</div>
+        <div class="feat-title">Accessible UI Design</div>
+        <div class="feat-desc">Sections separated by function. Giant, unmissable red SOS button. Designed for panic situations where every second and tap counts — zero learning curve.</div>
+      </div>
+    </div>
+  </section>
+
+  <!--DEMO / PHONE MOCKUP-->
+  <section class="demo-section" id="demo">
+    <div class="demo-info">
+      <div class="section-tag">SOS Data Capture</div>
+      <h2>ONE PRESS.<br />FULL PICTURE.</h2>
+      <p>When the SOS button is triggered, RapidAid doesn't just send a ping — it sends a complete emergency profile to responders.</p>
+      <ul class="data-fetch-list">
+        <li>Current GPS coordinates with address</li>
+        <li>Patient name &amp; medical ID (if registered)</li>
+        <li>Nearest hospitals with live capacity</li>
+        <li>Patient condition (AI-assessed via camera)</li>
+        <li>On-duty doctors within 5km radius</li>
+        <li>Live audio/video feed to remote doctor</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="phone-mock">
+        <div class="phone-header">
+          <div class="phone-app-name">RAPID<span>AID</span></div>
+          <div class="live-badge">
+            <div class="status-dot"></div>
+            LIVE
+          </div>
+        </div>
+        <div class="phone-location">
+          <div>LOCATION</div>
+          <div class="loc-val">22.8449°N, 88.4430°E — Bhātpāra, WB</div>
+        </div>
+        <button class="phone-sos" onclick="triggerSOS()">SOS</button>
+        <div class="phone-grid">
+          <div class="phone-mini-card">
+            <div class="pmc-label">Nearest Hospital</div>
+            <div class="pmc-val">Apollo — 2.3km</div>
+          </div>
+          <div class="phone-mini-card">
+            <div class="pmc-label">On-Duty Doctors</div>
+            <div class="pmc-val">3 Available</div>
+          </div>
+          <div class="phone-mini-card">
+            <div class="pmc-label">AI Triage</div>
+            <div class="pmc-val" style="color: var(--accent)">Active</div>
+          </div>
+          <div class="phone-mini-card">
+            <div class="pmc-label">ETA Relief</div>
+            <div class="pmc-val">~8 min</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--REMOTE AREAS -->
+  <section class="remote-section" id="remote">
+    <div class="section-tag">Remote Healthcare</div>
+    <h2>WHERE AMBULANCES<br /><span style="color: var(--red)">CAN'T GO.</span><br />WE DO.</h2>
+    <p class="section-sub" style="margin-top: 1rem">
+      RapidAid was designed specifically for remote, rural, and underserved areas where traditional emergency services fail.
+    </p>
+
+    <div class="remote-grid">
+      <div class="remote-item">
+        <div class="remote-item-num">01 — REMOTE ACCESS</div>
+        <h3>No Road? No Problem.</h3>
+        <p>When physical access is blocked, RapidAid connects the patient with a remote doctor via live video. The doctor guides bystanders through first aid while coordinating the best available transport option.</p>
+      </div>
+      <div class="remote-item">
+        <div class="remote-item-num">02 — AI TRIAGE</div>
+        <h3>OpenCV as Your First Responder</h3>
+        <p>Computer vision activates immediately through the phone camera, assessing visible trauma and vital indicators. It provides real-time, context-aware instructions to untrained bystanders — effectively turning anyone into a first responder.</p>
+      </div>
+      <div class="remote-item">
+        <div class="remote-item-num">03 — DOCTOR NETWORK</div>
+        <h3>Off-Grid, Never Off-Call</h3>
+        <p>Our doctor network includes both hospital-based physicians and community health workers. Even in areas with no hospital within 50km, a verified medical professional can be connected within minutes.</p>
+      </div>
+      <div class="remote-item">
+        <div class="remote-item-num">04 — BETTER THAN AMBULANCE</div>
+        <h3>Treatment Starts Now, Not On Arrival</h3>
+        <p>Traditional ambulances provide care only after reaching the patient. RapidAid begins AI-guided care the instant SOS is pressed — potentially hours before physical help arrives in remote regions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">RAPID<span>AID</span></div>
+    <div class="footer-text">
+      Built at Diversion Hackathon — Healthcare Track<br />
+      Emergency response that goes where ambulances can't.
+    </div>
+    <div class="footer-tagline">Every second counts.</div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>
