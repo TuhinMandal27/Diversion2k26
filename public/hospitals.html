@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RapidAid — Nearby Hospitals</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Main Theme CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">RAPID<span>AID</span></div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="hospitals.html">Hospitals</a></li>
+    <li><a href="consult.html">Consult</a></li>
+    <li><a href="login.html">Logout</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="section" style="padding-top:8rem;">
+  <div class="section-tag">Emergency Care</div>
+  <h2>NEARBY<br />HOSPITALS</h2>
+  <p class="section-sub">
+    RapidAid uses your current location to find the nearest hospitals,
+    helping you save precious minutes during emergencies.
+  </p>
+
+  <button class="btn-primary" id="findHospitals">
+    📍 Find Hospitals Near Me
+  </button>
+
+  <div id="statusMsg" style="margin-top:2rem; font-family:'Space Mono', monospace; color:var(--gray);">
+    Click the button to fetch nearby hospitals.
+  </div>
+</section>
+
+<!-- HOSPITAL LIST -->
+<section class="section" style="padding-top:2rem;">
+  <div id="hospitalList" class="features-grid"></div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">RAPID<span>AID</span></div>
+  <div class="footer-text">
+    Emergency healthcare when every second matters.
+  </div>
+  <div class="footer-tagline">Every second counts.</div>
+</footer>
+
+<!-- SCRIPT -->
+<script>
+  const btn = document.getElementById("findHospitals");
+  const list = document.getElementById("hospitalList");
+  const statusMsg = document.getElementById("statusMsg");
+
+  btn.addEventListener("click", () => {
+    if (!navigator.geolocation) {
+      statusMsg.textContent = " Geolocation not supported by your browser.";
+      return;
+    }
+
+    statusMsg.textContent = " Fetching your location...";
+    list.innerHTML = "";
+
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        const lat = pos.coords.latitude;
+        const lng = pos.coords.longitude;
+
+        statusMsg.textContent = " Searching nearest hospitals...";
+
+        try {
+          const res = await fetch(`/api/hospitals?lat=${lat}&lng=${lng}`);
+          const hospitals = await res.json();
+
+          if (!hospitals.length) {
+            statusMsg.textContent = "⚠ No hospitals found nearby.";
+            return;
+          }
+
+          statusMsg.textContent = ` ${hospitals.length} hospitals found near you`;
+
+          list.innerHTML = hospitals.map(h => `
+            <div class="feature-card">
+              <div class="feat-icon-wrap"></div>
+              <div class="feat-title">${h.name}</div>
+              <div class="feat-desc">
+                 ${h.address}<br />
+                 ${h.phone}<br />
+                <strong style="color:var(--accent);">
+                  ${h.distance.toFixed(2)} km away
+                </strong>
+              </div>
+            </div>
+          `).join("");
+
+        } catch (err) {
+          console.error(err);
+          statusMsg.textContent = " Error fetching hospital data.";
+        }
+      },
+      () => {
+        statusMsg.textContent = " Location access denied.";
+      }
+    );
+  });
+</script>
+
+</body>
+</html>

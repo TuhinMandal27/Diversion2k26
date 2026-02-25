@@ -4,206 +4,79 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RapidAid — Create Account</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/Diversion2k26/public/css/styles.css" />
-  <link rel="stylesheet" href="/Diversion2k26/public/css/auth.css" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
 </head>
 <body>
 
-  <div class="auth-page">
+<div class="auth-page">
 
-    <!-- LEFT BRANDING PANEL -->
-    <div class="auth-left">
-      <div class="auth-left-bg-text">NEW</div>
+  <!-- LEFT PANEL -->
+  <div class="auth-left">
+    <div class="auth-left-bg-text">NEW</div>
 
-      <div class="auth-brand">
-        <a href="index.html" class="logo">RAPID<span>AID</span></a>
-        <div class="tagline">Emergency Response System</div>
-      </div>
-
-      <div class="auth-left-content">
-        <h2>JOIN THE<br /><span>SAFETY</span><br />NETWORK.</h2>
-        <p>Creating a profile means responders know exactly who you are, your blood type, allergies, and medical history — the moment SOS is pressed.</p>
-        <div class="auth-features">
-          <div class="auth-feature">
-            <div class="auth-feature-dot"></div>
-            MEDICAL PROFILE STORED SECURELY
-          </div>
-          <div class="auth-feature">
-            <div class="auth-feature-dot"></div>
-            EMERGENCY CONTACTS AUTO-NOTIFIED
-          </div>
-          <div class="auth-feature">
-            <div class="auth-feature-dot"></div>
-            PERSONALIZED DOCTOR MATCHING
-          </div>
-          <div class="auth-feature">
-            <div class="auth-feature-dot"></div>
-            INSTANT HOSPITAL PRE-REGISTRATION
-          </div>
-        </div>
-      </div>
-
-      <div class="auth-left-footer">© 2025 RapidAid — Diversion Hackathon</div>
+    <div class="auth-brand">
+      <a href="index.html" class="logo">RAPID<span>AID</span></a>
+      <div class="tagline">Emergency Response System</div>
     </div>
 
-    <!-- RIGHT FORM PANEL -->
-    <div class="auth-right" style="padding: 2rem 3rem; overflow-y: auto;">
-      <div class="auth-form-wrap">
-        <div class="auth-form-header">
-          <div class="form-eyebrow">New Account</div>
-          <h1>CREATE<br />PROFILE</h1>
-          <p>Already registered? <a href="login.html">Login here →</a></p>
-        </div>
-
-        <div class="form-msg error" id="signupError">⚠ Please fill all required fields correctly.</div>
-        <div class="form-msg success" id="signupSuccess">✓ Account created! Redirecting to dashboard...</div>
-
-        <form id="signupForm" novalidate>
-
-          <!-- STEP 1: PERSONAL INFO -->
-          <div style="font-family:'Space Mono',monospace; font-size:0.6rem; letter-spacing:2px; color:var(--accent); margin-bottom:1rem; padding-bottom:0.5rem; border-bottom:1px solid rgba(0,255,178,0.15);">
-            01 — PERSONAL INFORMATION
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label>First Name *</label>
-              <input type="text" id="firstName" placeholder="Rahul" required />
-            </div>
-            <div class="form-group">
-              <label>Last Name *</label>
-              <input type="text" id="lastName" placeholder="Das" required />
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Email Address *</label>
-            <div class="input-icon-wrap">
-              <span class="input-icon">📧</span>
-              <input type="email" id="signupEmail" placeholder="you@example.com" autocomplete="email" required />
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Phone Number *</label>
-            <div class="input-icon-wrap">
-              <span class="input-icon">📱</span>
-              <input type="tel" id="signupPhone" placeholder="+91 98765 43210" required />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label>Date of Birth *</label>
-              <input type="date" id="dob" required />
-            </div>
-            <div class="form-group">
-              <label>Gender</label>
-              <select id="gender">
-                <option value="">Select</option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Non-binary</option>
-                <option>Prefer not to say</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- STEP 2: MEDICAL PROFILE -->
-          <div style="font-family:'Space Mono',monospace; font-size:0.6rem; letter-spacing:2px; color:var(--accent); margin: 1.5rem 0 1rem; padding-bottom:0.5rem; border-bottom:1px solid rgba(0,255,178,0.15);">
-            02 — MEDICAL PROFILE
-          </div>
-
-          <div class="form-group">
-            <label>Blood Type</label>
-            <div class="blood-options">
-              <input class="blood-opt" type="radio" name="blood" id="bA+" value="A+" />
-              <label for="bA+">A+</label>
-              <input class="blood-opt" type="radio" name="blood" id="bA-" value="A-" />
-              <label for="bA-">A−</label>
-              <input class="blood-opt" type="radio" name="blood" id="bB+" value="B+" />
-              <label for="bB+">B+</label>
-              <input class="blood-opt" type="radio" name="blood" id="bB-" value="B-" />
-              <label for="bB-">B−</label>
-              <input class="blood-opt" type="radio" name="blood" id="bO+" value="O+" />
-              <label for="bO+">O+</label>
-              <input class="blood-opt" type="radio" name="blood" id="bO-" value="O-" />
-              <label for="bO-">O−</label>
-              <input class="blood-opt" type="radio" name="blood" id="bAB+" value="AB+" />
-              <label for="bAB+">AB+</label>
-              <input class="blood-opt" type="radio" name="blood" id="bAB-" value="AB-" />
-              <label for="bAB-">AB−</label>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Known Allergies <span style="color:#555;">(optional)</span></label>
-            <input type="text" id="allergies" placeholder="e.g. Penicillin, Peanuts, Latex" />
-          </div>
-
-          <div class="form-group">
-            <label>Existing Conditions <span style="color:#555;">(optional)</span></label>
-            <input type="text" id="conditions" placeholder="e.g. Diabetes, Hypertension" />
-          </div>
-
-          <div class="form-group">
-            <label>Emergency Contact Name *</label>
-            <input type="text" id="emergencyName" placeholder="Contact person's name" required />
-          </div>
-
-          <div class="form-group">
-            <label>Emergency Contact Phone *</label>
-            <div class="input-icon-wrap">
-              <span class="input-icon">🆘</span>
-              <input type="tel" id="emergencyPhone" placeholder="+91 98765 00000" required />
-            </div>
-          </div>
-
-          <!-- STEP 3: ACCOUNT SECURITY -->
-          <div style="font-family:'Space Mono',monospace; font-size:0.6rem; letter-spacing:2px; color:var(--accent); margin: 1.5rem 0 1rem; padding-bottom:0.5rem; border-bottom:1px solid rgba(0,255,178,0.15);">
-            03 — ACCOUNT SECURITY
-          </div>
-
-          <div class="form-group">
-            <label>Password *</label>
-            <div class="pw-wrap">
-              <input type="password" id="signupPassword" placeholder="Min. 8 characters" oninput="checkStrength(this.value)" required />
-              <button type="button" class="pw-toggle" onclick="togglePw('signupPassword', this)">👁</button>
-            </div>
-            <div class="pw-strength" id="pwStrength">
-              <div class="pw-strength-bar" id="bar1"></div>
-              <div class="pw-strength-bar" id="bar2"></div>
-              <div class="pw-strength-bar" id="bar3"></div>
-              <div class="pw-strength-bar" id="bar4"></div>
-              <span class="pw-strength-label" id="pwLabel">—</span>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Confirm Password *</label>
-            <div class="pw-wrap">
-              <input type="password" id="confirmPassword" placeholder="Repeat password" required />
-              <button type="button" class="pw-toggle" onclick="togglePw('confirmPassword', this)">👁</button>
-            </div>
-          </div>
-
-          <div class="form-check">
-            <input type="checkbox" id="agreeTerms" required />
-            <label for="agreeTerms">
-              I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
-              I consent to my medical profile being shared with emergency responders when SOS is triggered.
-            </label>
-          </div>
-
-          <button type="submit" class="btn-submit">CREATE MY ACCOUNT</button>
-
-        </form>
-      </div>
+    <div class="auth-left-content">
+      <h2>CREATE<br><span>PROFILE</span></h2>
+      <p>Your medical profile helps responders save precious time.</p>
     </div>
 
+    <div class="auth-left-footer">
+      © 2025 RapidAid — Diversion Hackathon
+    </div>
   </div>
 
-  <script src="auth.js"></script>
+  <!-- RIGHT PANEL -->
+  <div class="auth-right">
+    <div class="auth-form-wrap">
+
+      <div class="auth-form-header">
+        <div class="form-eyebrow">New Account</div>
+        <h1>JOIN<br>RAPIDAID</h1>
+        <p>Already registered? <a href="login.html">Login here →</a></p>
+      </div>
+
+      <!-- Messages -->
+      <div id="signupError" class="form-msg error"></div>
+      <div id="signupSuccess" class="form-msg success"></div>
+
+      <form id="signupForm" novalidate>
+
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="firstName" placeholder="Your name" required>
+        </div>
+
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="signupEmail" placeholder="you@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="signupPassword" placeholder="Min 8 characters" required>
+        </div>
+
+        <button type="submit" class="btn-submit">
+          CREATE MY ACCOUNT
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+</div>
+
+<script src="js/auth.js"></script>
 </body>
 </html>

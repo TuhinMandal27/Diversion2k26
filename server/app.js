@@ -1,16 +1,31 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const authRoutes = require("./routes/auth.routes");
 const sosRoutes = require("./routes/sos.routes");
+const hospitalRoutes = require("./routes/hospital.routes");
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
-app.use(express.static("public"));
 
+// serve frontend
+const publicPath = path.resolve(__dirname, "../public");
+console.log("Serving public from:", publicPath);
+
+app.use(express.static(publicPath));
+
+// default route
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/login.html"));
+});
+
+// API routes
 app.use("/api/auth", authRoutes);
 app.use("/api/sos", sosRoutes);
+app.use("/api/hospitals", hospitalRoutes);
 
 app.listen(3000, () => {
   console.log("Server running on http://localhost:3000");
