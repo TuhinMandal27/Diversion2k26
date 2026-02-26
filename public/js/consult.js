@@ -46,21 +46,39 @@ if (doctor) {
     ctx.drawImage(localVideo, 0, 0);
     const frame = canvas.toDataURL("image/jpeg");
 
+    // fetch("/api/ai/analyze", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify({ frame })
+    // })
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     aiStatus.textContent = "🧠 AI: " + data.status;
+
+    //     if (data.status.includes("unresponsive")) {
+    //       aiStatus.style.color = "#ff4d4d";
+    //     } else {
+    //       aiStatus.style.color = "#00ffb2";
+    //     }
+    //   });
+
     fetch("/api/ai/analyze", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ frame })
     })
-      .then(res => res.json())
-      .then(data => {
-        aiStatus.textContent = "🧠 AI: " + data.status;
+    .then(res => res.json())
+    .then(data => {
+      aiStatus.textContent = " AI: " + data.status.join(" | ");
 
-        if (data.status.includes("unresponsive")) {
-          aiStatus.style.color = "#ff4d4d";
-        } else {
-          aiStatus.style.color = "#00ffb2";
-        }
-      });
+      if (data.critical) {
+        aiStatus.style.color = "#ff4d4d";
+        consultStatus.textContent =
+          " Critical condition detected. Doctor alerted.";
+      } else {
+        aiStatus.style.color = "#00ffb2";
+      }
+    });
 }
 
 setInterval(sendFrameToAI, 2000);
@@ -152,18 +170,5 @@ function startAIAssistant() {
         break;
       }
     }
-
-    // if (motionDetected) {
-    //   lastMotionTime = Date.now();
-    //   aiStatus.textContent =
-    //     "✅ Movement detected. Patient responsive.";
-    // } else if (Date.now() - lastMotionTime > 6000) {
-    //   aiStatus.textContent =
-    //     "⚠️ Patient appears still. Check breathing and pulse immediately.";
-    // } else {
-    //   aiStatus.textContent =
-    //     "🧠 Monitoring patient condition…";
-    // }
-
   }, 3000);
 }
