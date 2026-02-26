@@ -1011,3 +1011,42 @@ footer {
   font-size: 0.75rem;
   color: var(--gray);
 }
+
+
+.consult-video-wrapper {
+  margin: 2rem auto;
+  max-width: 420px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 0 40px rgba(255, 0, 80, 0.25);
+}
+
+video {
+  width: 100%;
+  display: none;
+}
+
+.ptt-btn {
+  background: var(--red);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.ptt-btn:active {
+  background: #ff0033;
+}
+
+.ai-box {
+  margin-top: 2rem;
+  padding: 1.2rem;
+  background: rgba(255,255,255,0.05);
+  border-left: 4px solid var(--accent);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+}

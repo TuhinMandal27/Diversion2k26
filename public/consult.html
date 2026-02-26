@@ -1,3 +1,98 @@
-<h2>Doctor Video Consultation</h2>
-<video id="video" autoplay></video>
-<script src="js/consult.js"></script>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RapidAid — Virtual Consultation</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+    <nav>
+        <div class="nav-logo">RAPID<span>AID</span></div>
+    </nav>
+
+    <section class="section" style="padding-top:7rem;">
+        <div class="section-tag">Virtual Assistance</div>
+        <h2>DOCTOR<br />CONNECTED</h2>
+        <div class="feature-card" id="doctorCard">
+            Connecting to doctor…
+        </div>
+        <div class="consult-actions">
+            <button class="btn-primary" id="startVideo">
+             Start Video Consultation
+            </button>
+            <button class="btn-secondary">
+             Enable Audio
+            </button>
+        </div>
+        <div id="consultStatus" class="status-msg">
+            Waiting for doctor response…
+        </div>
+    </section>
+    <script src="js/consult.js"></script>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RapidAid — Virtual Consultation</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+</head>
+<body>
+    <nav>
+    <div class="nav-logo">RAPID<span>AID</span></div>
+    </nav>
+
+    <section class="section" style="padding-top:7rem;">
+    <div class="section-tag">Virtual Assistance</div>
+    <h2>DOCTOR<br />CONNECTED</h2>
+
+    <!-- DOCTOR INFO -->
+    <div class="feature-card" id="doctorCard">
+        Connecting to doctor…
+    </div>
+
+    <!-- VIDEO -->
+    <div class="consult-video-wrapper">
+        <video id="localVideo" autoplay muted playsinline></video>
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="consult-actions">
+        <button class="btn-primary" id="startVideo">
+        🎥 Start Video
+        </button>
+
+        <!-- PUSH TO TALK -->
+        <button class="ptt-btn" id="pttBtn">
+        🎙️ Hold to Talk
+        </button>
+    </div>
+
+    <!-- STATUS -->
+    <div id="consultStatus" class="status-msg">
+        Waiting for doctor response…
+    </div>
+
+    <!-- AI ASSISTANT OUTPUT -->
+    <div class="ai-box" id="aiStatus">
+        🧠 AI Assistant standing by…
+    </div>
+    </section>
+
+    <script src="js/consult.js"></script>
+</body>
+</html>

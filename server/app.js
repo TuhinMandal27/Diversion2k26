@@ -5,6 +5,7 @@ const path = require("path");
 const authRoutes = require("./routes/auth.routes");
 const sosRoutes = require("./routes/sos.routes");
 const hospitalRoutes = require("./routes/hospital.routes");
+const aiRoutes = require("./routes/ai.routes");
 
 
 const app = express();
@@ -27,6 +28,7 @@ app.get("/", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/sos", sosRoutes);
 app.use("/api/hospitals", hospitalRoutes);
+app.use("/api/ai", aiRoutes);
 
 
 app.listen(3000, () => {
