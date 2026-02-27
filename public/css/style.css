@@ -1050,3 +1050,28 @@ video {
   font-family: 'Space Mono', monospace;
   font-size: 0.85rem;
 }
+
+.user-section {
+  display: none;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-name {
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.logout-link {
+  color: var(--red);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+
+.logout-link:hover {
+  color: #fff;
+}
+

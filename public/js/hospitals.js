@@ -1,38 +1,3 @@
-// const btn = document.getElementById("findHospitals");
-// const list = document.getElementById("hospitalList");
-
-// btn.addEventListener("click", () => {
-//   if (!navigator.geolocation) {
-//     list.innerHTML = "Geolocation not supported.";
-//     return;
-//   }
-
-//   list.innerHTML = " Fetching location...";
-
-//   navigator.geolocation.getCurrentPosition(async (pos) => {
-//     const lat = pos.coords.latitude;
-//     const lng = pos.coords.longitude;
-
-//     const res = await fetch(`/api/hospitals?lat=${lat}&lng=${lng}`);
-//     const hospitals = await res.json();
-
-//     if (hospitals.length === 0) {
-//       list.innerHTML = "No hospitals found nearby.";
-//       return;
-//     }
-
-//     list.innerHTML = hospitals.map(h => `
-//       <div class="feature-card" style="margin-bottom:1rem;">
-//         <h3>${h.name}</h3>
-//         <p>${h.address}</p>
-//         <p> ${h.phone}</p>
-//         <p><strong>${h.distance.toFixed(2)} km away</strong></p>
-//       </div>
-//     `).join("");
-//   });
-// });
-
-
 const searchBtn = document.getElementById("searchBtn");
 const cityInput = document.getElementById("cityInput");
 const hospitalList = document.getElementById("hospitalList");
@@ -87,13 +52,13 @@ function renderResults(data) {
   hospitalList.innerHTML = data
     .map(h => `
       <div class="feature-card">
-        <div class="feat-icon-wrap">🏥</div>
+        <div class="feat-icon-wrap"></div>
         <div class="feat-title">${h.name}</div>
         <div class="feat-desc">
-          📍 ${h.address}<br>
-          👨‍⚕️ Dr. ${h.doctor_name} (${h.speciality})<br>
-          📞 ${h.phone || "N/A"}<br>
-          <span style="color:var(--accent)">🟢 Available</span><br>
+           ${h.address}<br>
+           Dr. ${h.doctor_name} (${h.speciality})<br>
+           ${h.phone || "N/A"}<br>
+          <span style="color:var(--accent)"> Available</span><br>
           <strong>${Number(h.distance).toFixed(1)} km away</strong>
         </div>
       </div>
@@ -115,7 +80,7 @@ searchBtn.addEventListener("click", async () => {
     return;
   }
 
-  statusMsg.textContent = "📍 Locating city…";
+  statusMsg.textContent = " Locating city…";
 
   const controller = new AbortController();
   setTimeout(() => controller.abort(), 7000);
@@ -129,7 +94,7 @@ searchBtn.addEventListener("click", async () => {
       return;
     }
 
-    statusMsg.textContent = "🏥 Scanning live doctor availability…";
+    statusMsg.textContent = " Scanning for nearest hospitals...";
 
     // STEP 2: Fetch hospitals
     const results = await fetchAvailability(
@@ -140,14 +105,17 @@ searchBtn.addEventListener("click", async () => {
 
     if (!results.length) {
       statusMsg.textContent = "⚠ No doctors available nearby.";
+      statusMsg.textContent = "⚠ No hospitals found nearby.";
       return;
     }
 
-    statusMsg.textContent = `✅ ${results.length} doctors available`;
+    statusMsg.textContent = ` ${results.length} hospital available`;
     renderResults(results);
 
-  } catch (err) {
-    console.error("Fetch error:", err);
-    statusMsg.textContent = "⚠ Unable to fetch availability.";
+  } catch (error) {
+    console.error("Overpass error:", error.message);
+    res.status(500).json({
+      error: "Hospital server busy. Please try again."
+    });
   }
 });
