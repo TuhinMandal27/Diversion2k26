@@ -10,6 +10,7 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/auth.css">
 </head>
 <body>
 
@@ -44,8 +45,12 @@
       <li><a href="#remote">Remote Care</a></li>
       <li><a href="hospitals.html">Hospitals</a></li>
       <li><a href="consult.html">Consult</a></li>
-      <li><a href="login.html">Login</a></li>
-      <li><a href="signup.html">Signup</a></li>
+      <li id="loginLink" ><a href="login.html">Login</a></li>
+      <li id="signupLink"><a href="signup.html">Signup</a></li>
+      <li id="userSection" class="user-section">
+        <span id="usernameDisplay" class="user-name"></span>
+        <a href="#" onclick="logout()" class="logout-link">Logout</a>
+      </li>
     </ul>
   </nav>
 
@@ -282,5 +287,6 @@
   <!-- JavaScript -->
   <script src="js/main.js"></script>
   <script src="js/sos.js"></script>
+  <script src="js/auth-state.js"></script>
 </body>
 </html>
