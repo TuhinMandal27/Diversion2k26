@@ -1075,3 +1075,119 @@ video {
   color: #fff;
 }
 
+/* ===============================
+   CHATBOT STYLES
+   THE LIFE SAVERS THEME
+   =============================== */
+
+.chatbot-container{
+    max-width:800px;
+    margin:100px auto 40px;
+}
+
+/* Chat Box */
+.chat-box{
+    background: rgba(255,255,255,0.04);
+    border:1px solid rgba(0,255,178,0.2);
+    border-radius:12px;
+    padding:20px;
+    height:500px;
+    overflow-y:auto;
+    margin-bottom:15px;
+    backdrop-filter: blur(10px);
+}
+
+/* Messages */
+.message{
+    margin-bottom:15px;
+    display:flex;
+}
+
+.message.user{
+    justify-content:flex-end;
+}
+
+.message.ai{
+    justify-content:flex-start;
+}
+
+/* Bubble */
+.message-bubble{
+    padding:12px 16px;
+    border-radius:12px;
+    max-width:70%;
+    font-size:14px;
+    font-family:'Outfit', sans-serif;
+}
+
+/* User message */
+.message.user .message-bubble{
+    background: linear-gradient(90deg,#00ffb2,#007cf0);
+    color:#001a14;
+    font-weight:600;
+}
+
+/* AI message */
+.message.ai .message-bubble{
+    background: rgba(255,255,255,0.06);
+    border:1px solid rgba(0,255,178,0.25);
+    color:#ffffff;
+}
+
+/* Input section */
+.chat-input{
+    display:flex;
+    gap:10px;
+}
+
+.chat-input input{
+    flex:1;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid rgba(0,255,178,0.2);
+    background: rgba(255,255,255,0.05);
+    color:white;
+    font-family:'Outfit', sans-serif;
+    outline:none;
+}
+
+.chat-input input:focus{
+    border-color:#00ffb2;
+}
+
+/* Scrollbar */
+.chat-box::-webkit-scrollbar{
+    width:6px;
+}
+
+.chat-box::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+.chat-box::-webkit-scrollbar-thumb{
+    background:#00ffb2;
+    border-radius:10px;
+}
+
+/* Typing animation */
+.typing{
+    opacity:0.7;
+    font-style:italic;
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+.chatbot-container{
+    margin-top:80px;
+    padding:10px;
+}
+
+.chat-box{
+    height:400px;
+}
+
+}
+.message.ai:first-child .message-bubble {
+  border-left: 3px solid var(--accent);
+}

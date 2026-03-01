@@ -1,3 +1,23 @@
+function speakText(text) {
+
+  if (!("speechSynthesis" in window)) {
+    console.log("Speech not supported");
+    return;
+  }
+
+  const cleanText = text.replace(/<[^>]*>/g, "");
+
+  const speech = new SpeechSynthesisUtterance(cleanText);
+
+  speech.rate = 1;
+  speech.pitch = 1;
+  speech.volume = 1;
+
+  speech.lang = "en-US";
+
+  window.speechSynthesis.cancel(); // stop previous speech
+  window.speechSynthesis.speak(speech);
+}
 async function sendMessage() {
 
   const chatBox = document.getElementById("chatBox");
@@ -22,6 +42,8 @@ async function sendMessage() {
 
     document.querySelector(".message.ai:last-child")?.remove();
     addMessage(data.reply, "ai");
+    speakText(data.reply);
+    
 
   } catch (error) {
     document.querySelector(".message.ai:last-child")?.remove();
@@ -29,6 +51,9 @@ async function sendMessage() {
   }
 
 }
+
+
+
 
 function addMessage(text, sender) {
 
